@@ -27,7 +27,7 @@ describe("portable deployment artifacts", () => {
     expect(packageJson.scripts["deploy:build"]).toBe(
       "node ./scripts/build-web-standalone.mjs"
     );
-    expect(packageJson.license).toBe("ISC");
+    expect(packageJson.license).toBe("GPL-3.0-only");
   });
 
   it("keeps deployment secrets and user data outside the container image", () => {
@@ -76,6 +76,12 @@ describe("portable deployment artifacts", () => {
     expect(environmentExample).toContain("TEACHHELPER_DATA_ROOT");
     expect(environmentExample).not.toMatch(/sk-[A-Za-z0-9]{12,}/u);
     expect(read("README.md")).toContain("TEACHHELPER_PUBLIC_ORIGIN");
+    expect(read("README.md")).toContain("https://vvw.wvv.pp.ua/");
+    expect(read("README.md")).toContain("免责声明");
+    expect(read("README.md").indexOf("https://vvw.wvv.pp.ua/")).toBeLessThan(
+      read("README.md").indexOf("![TeachHelper icon]")
+    );
+    expect(read("README.md")).toContain("GPL-3.0-only");
     expect(read("deploy/nginx/teachhelper.conf.example")).toContain("proxy_read_timeout 900s");
     expect(read(".github/workflows/ci.yml")).toContain("matrix.os");
   });

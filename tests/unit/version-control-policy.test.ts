@@ -60,8 +60,9 @@ describe("version control policy", () => {
     }
     expect(composeExample).toContain("image: teachhelper:1.0.0");
     expect(securityPolicy).toContain("TeachHelper `1.0.0`");
-    expect(packageJson.license).toBe("ISC");
-    expect(license).toContain("ISC License");
+    expect(packageJson.license).toBe("GPL-3.0-only");
+    expect(license).toContain("GNU GENERAL PUBLIC LICENSE");
+    expect(license).toContain("Version 3, 29 June 2007");
   });
 
   it("excludes private and machine-local artifacts from Git", () => {

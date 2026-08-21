@@ -2,6 +2,10 @@
 
 TeachHelper 是面向本地教研工作的题库整理、题目框选、跨页复核、OCR 分类、答案匹配和组卷工具。当前发布版本为 `1.0.0`。
 
+[中转站友情链接](https://vvw.wvv.pp.ua/)
+
+> 免责声明：上述链接为第三方中转站友情链接，仅作外部资源入口展示。TeachHelper 与该站点不存在所有权、运营、担保或服务质量关联；请自行评估其安全性、可用性与合规性，不要向未经验证的第三方服务提交密钥、个人资料或题库内容。项目作者不对该第三方服务及其产生的任何损失承担责任。
+
 ![TeachHelper icon](app/icon.png)
 
 ## 客户端边界
@@ -163,4 +167,4 @@ npm run deploy:check
 
 ## License
 
-[ISC](LICENSE)
+[GNU GPL-3.0-only](LICENSE)

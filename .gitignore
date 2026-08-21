@@ -1,0 +1,65 @@
+# Dependencies and generated Web output
+node_modules/
+.next/
+.next-*/
+.next_*/
+.next-dev-logs/
+.npm-cache/
+coverage/
+dist/
+dist-desktop/
+*.tsbuildinfo
+*.log
+
+# Local runtime state and user-owned library data
+data/
+logs/
+tmp/
+.tmp*/
+aaa/
+exports/
+backups/
+**/exports/
+**/backups/
+settings.json
+**/settings.json
+
+# Environment, routing, and credential material
+.env*
+!.env.example
+.cc-connect/
+.codex/
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+**/local.properties
+
+# Local PDF fixtures can contain private teaching material
+/*.pdf
+*.pdf
+
+# Android dependencies, SDKs, caches, and build artifacts
+android-sdk/
+android-app/node_modules/
+android-app/.android-sdk/
+android-app/.cache*/
+android-app/.ccache*/
+android-app/.expo*/
+android-app/.gradle*/
+android-app/.kotlin/
+android-app/.npm-cache*/
+android-app/**/.gradle/
+android-app/**/build/
+android-app/**/.cxx/
+android-app/**/.kotlin/
+*.apk
+*.aab
+
+# Editor and operating-system state
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

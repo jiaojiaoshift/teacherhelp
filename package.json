@@ -1,0 +1,95 @@
+{
+  "name": "teachhelper",
+  "version": "1.0.0",
+  "private": true,
+  "main": "desktop/main.cjs",
+  "description": "Teaching question bank workspace",
+  "engines": {
+    "node": ">=20.19.0 <25",
+    "npm": ">=10"
+  },
+  "packageManager": "npm@10.9.3",
+  "bin": {
+    "teacherhelp": "./scripts/teacherhelp-cli.mjs"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "setup:fresh": "node ./scripts/bootstrap.mjs",
+    "deploy:check": "node ./scripts/check-deployment-readiness.mjs",
+    "deploy:build": "node ./scripts/build-web-standalone.mjs",
+    "branding:icons": "node ./scripts/generate-desktop-icon.mjs",
+    "desktop:icon": "node ./scripts/generate-desktop-icon.mjs",
+    "desktop:next:build": "node ./scripts/build-desktop-next.mjs",
+    "desktop:run": "electron .",
+    "desktop:pack": "npm run desktop:next:build && electron-builder --dir --config desktop/electron-builder.config.cjs",
+    "desktop:dist": "npm run desktop:next:build && electron-builder --win nsis --config desktop/electron-builder.config.cjs",
+    "fixture:blind": "node --experimental-strip-types ./scripts/run-blind-pdf-fixture.mjs",
+    "fixture:evaluate": "node ./scripts/evaluate-blind-pdf-fixture.mjs",
+    "answer-fixture:blind": "node ./scripts/run-blind-answer-fixture.mjs",
+    "answer-fixture:evaluate": "node ./scripts/evaluate-blind-answer-fixture.mjs",
+    "answer-fixture:desktop": "node ./scripts/run-desktop-blind-answer-fixture.mjs",
+    "android:workflow": "node ./scripts/print-android-maintenance-workflow.mjs",
+    "android:boundaries": "node ./scripts/print-android-path-ownership.mjs",
+    "android:expo:typecheck": "node ./scripts/run-android-expo-typecheck.mjs",
+    "android:expo:release": "node ./scripts/run-android-expo-assemble-release.mjs",
+    "android:dev:test": "node ./scripts/run-android-native-core-test.mjs",
+    "android:dev:build": "node ./scripts/run-android-native-assemble-debug.mjs",
+    "status:android": "node ./scripts/verify-android-lines.mjs",
+    "verify:android-contract": "node ./scripts/verify-android-mobile-upload-contract.mjs",
+    "install:teacherhelp-command": "node ./scripts/install-teacherhelp-command.mjs"
+  },
+  "keywords": [
+    "education",
+    "question-bank",
+    "ocr",
+    "electron",
+    "nextjs"
+  ],
+  "author": "TeachHelper contributors",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jiaojiaoshift/teacherhelp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jiaojiaoshift/teacherhelp/issues"
+  },
+  "homepage": "https://github.com/jiaojiaoshift/teacherhelp#readme",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.100",
+    "clsx": "^2.1.1",
+    "idb": "^8.0.3",
+    "katex": "^0.17.0",
+    "next": "^14.2.35",
+    "openai": "^6.39.1",
+    "pdfjs-dist": "^4.10.38",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.9.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.4.20",
+    "electron": "^43.4.0",
+    "electron-builder": "^26.15.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6",
+    "fake-indexeddb": "^6.2.5",
+    "jsdom": "^29.1.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.7"
+  }
+}

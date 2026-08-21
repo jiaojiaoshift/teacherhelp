@@ -1,0 +1,34 @@
+services:
+  teachhelper:
+    build:
+      context: .
+    image: teachhelper:1.0.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
+      TEACHHELPER_DATA_ROOT: /data
+      TEACHHELPER_PUBLIC_ORIGIN: ${TEACHHELPER_PUBLIC_ORIGIN:-}
+      TEACHHELPER_AI_PROVIDER: ${TEACHHELPER_AI_PROVIDER:-openai-compatible}
+      TEACHHELPER_AI_BASE_URL: ${TEACHHELPER_AI_BASE_URL:-}
+      TEACHHELPER_AI_MODEL: ${TEACHHELPER_AI_MODEL:-}
+      TEACHHELPER_AI_API_KEY: ${TEACHHELPER_AI_API_KEY:-}
+      TEACHHELPER_AI_WIRE_API: ${TEACHHELPER_AI_WIRE_API:-responses}
+      NEXT_PUBLIC_TEACHHELPER_AI_REQUEST_CONCURRENCY: ${NEXT_PUBLIC_TEACHHELPER_AI_REQUEST_CONCURRENCY:-12}
+    volumes:
+      - teachhelper-data:/data
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - fetch('http://127.0.0.1:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  teachhelper-data:

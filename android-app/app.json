@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "TeachHelper Mobile",
+    "slug": "teachhelper-mobile-upload",
+    "version": "1.0.0",
+    "icon": "./assets/icon.png",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "com.teachhelper.mobileupload",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1B1E38"
+      }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "用于扫描 TeachHelper PC 页面上的配对二维码"
+        }
+      ],
+      "expo-document-picker"
+    ]
+  }
+}
